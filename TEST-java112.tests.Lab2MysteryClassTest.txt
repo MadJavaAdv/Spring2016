@@ -1,0 +1,7 @@
+Testsuite: java112.tests.Lab2MysteryClassTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec
+
+Testcase: methodOneReturnTest took 0.005 sec
+Testcase: methodOneExistsTest took 0.001 sec
+Testcase: classExists took 0 sec
+Testcase: runMethodOneTest took 0 sec

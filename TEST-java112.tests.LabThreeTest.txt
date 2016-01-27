@@ -1,0 +1,21 @@
+Testsuite: java112.tests.LabThreeTest
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec
+
+Testcase: classExists took 0.016 sec
+Testcase: runMethodWithOneStringParamExistsTest took 0 sec
+Testcase: mainMethodVoidReturnTest took 0 sec
+Testcase: runMethodSystemOutPrintlnWithInputTest took 0.001 sec
+Testcase: mainMethodExistsTest took 0 sec
+Testcase: runMethodVoidReturnTest took 0 sec
+Testcase: mainMethodSystemOutPrintlnNoArgumentsInputTest took 0.001 sec
+Testcase: mainMethodOneArgumentInputCallRunMethodTest took 0.008 sec
+	FAILED
+expected:<[input: test]
+> but was:<[Please enter one argument on the command line]
+>
+junit.framework.AssertionFailedError: expected:<[input: test]
+> but was:<[Please enter one argument on the command line]
+>
+	at java112.tests.LabThreeTest.mainMethodOneArgumentInputCallRunMethodTest(LabThreeTest.java:84)
+
+Testcase: mainMethodSystemOutPrintlnTooManyArgumentsTest took 0 sec
