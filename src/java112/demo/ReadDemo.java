@@ -8,9 +8,9 @@ import java.io.*;
 
 public class ReadDemo {
 
-/** main method for starting the program
- *  @param args the command line arguments
- **/
+    /** main method for starting the program
+    *  @param args the command line arguments
+    **/
     public static void main(String[] args) {
 
         ReadDemo demo = new ReadDemo();

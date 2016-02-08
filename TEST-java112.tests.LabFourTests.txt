@@ -1,0 +1,11 @@
+Testsuite: java112.tests.LabFourTests
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+
+Testcase: classExists took 0.019 sec
+Testcase: mainMethodVoidReturnTest took 0 sec
+Testcase: mainMethodExistsTest took 0.002 sec
+Testcase: runMethodVoidReturnTest took 0.002 sec
+Testcase: runMethodWithOneStringParamExistsTest took 0 sec
+Testcase: runMethodSystemOutPrintlnWithInputFileTest took 0.001 sec
+Testcase: mainMethodSystemOutPrintlnNoArgumentsInputTest took 0 sec
+Testcase: mainMethodSystemOutPrintlnTooManyArgumentsTest took 0 sec
