@@ -16,7 +16,7 @@ public class LabFive {
     public void run(String fileName, String message) {
         // TODO: When would I NOT want to use try-with-resources?
         // TODO: How could I append to a file, rather than rewriting it each time?
-        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(fileName)))){
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(fileName, true)))){
               writer.println(message);  
         } catch (FileNotFoundException fileNotFoundException) {
             System.out.println("There was a problem opening the file:");

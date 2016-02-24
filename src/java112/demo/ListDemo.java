@@ -23,6 +23,7 @@ public class ListDemo {
       myList.add("one");
       myList.add("and");
       myList.add("two");
+      myList.add("three");
       
       // print the list
       System.out.println(myList);

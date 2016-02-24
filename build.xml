@@ -1,5 +1,6 @@
 <!--
     10-152-112 Advanced Java
+    build.xml for project 2
 -->
 
 <project default="deploy">
@@ -29,21 +30,13 @@
     <!-- Create the build directory structure used by compile -->
     <mkdir dir="${build}"/>
     <mkdir dir="${build}/classes"/>
+    <mkdir dir="${dist}"/>
+    <mkdir dir="${WEB-INF}"/>
     <mkdir dir="${META-INF}"/>
+    <mkdir dir="${web_classes}"/>
+    <mkdir dir="${WEB-INF}/lib"/>
   </target>
 
-  <target name="setup" depends="init" description="The initial setup for the class project">
-    <!-- Create the time stamp -->
-    <tstamp/>
-    <mkdir dir="lib" />
-    <mkdir dir="src" />
-    <mkdir dir="src/java112" />
-    <mkdir dir="src/java112/labs1" />
-    <mkdir dir="src/java112/analyzer" />
-     <mkdir dir="src/java112/demo" />
-    <mkdir dir="output" />
-    <mkdir dir="docs" />
-  </target>
 
   <target name="clean" description="Delete build and dist">
     <!-- Delete the ${build} and ${dist} directory trees -->
@@ -53,40 +46,46 @@
 
   <target name="compile_analyzer" depends="init">
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}"
-           destdir="${build}/classes"
-           extdirs="${lib}"
-           verbose="false"
-           excludes="*.jsp,*.html,*.xml, java112/labs1/**, java112/labs2/**, java112/project2/**, java112/tests/**, java112/demo/**"
-           deprecation="on"
-           debug="on"
+    <javac srcdir="${src}" 
+           destdir="${build}/classes" 
+           extdirs="${lib}" 
+           verbose="false" 
+           excludes="*.jsp, 
+                     *.html, 
+                     *.xml, 
+                     java112/labs1/**, 
+                     java112/labs2/**, 
+                     java112/project2/**, 
+                     java112/tests/**,
+                     java112/demo/**"
+           deprecation="on" 
+           debug="on" 
            includeAntRuntime="false" />
   </target>
 
   <target name="compile_labs" depends="init">
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}"
-           destdir="${build}/classes"
-           extdirs="${lib}"
-           verbose="false"
+    <javac srcdir="${src}" 
+           destdir="${build}/classes" 
+           extdirs="${lib}" 
+           verbose="false" 
            excludes="*.jsp,*.html,*.xml, java112/analyzer/**, java112/tests/**, java112/demo/**"
-           deprecation="on"
-           debug="on"
+           deprecation="on" 
+           debug="on" 
            includeAntRuntime="false" />
   </target>
-
+  
   <target name="compile_demos" depends="init">
-    <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}"
-           destdir="${build}/classes"
-           extdirs="${lib}"
-           verbose="false"
-           excludes="*.jsp,*.html,*.xml, java112/analyzer/**, java112/tests/**, java112/labs1/**, java112/labs2/**, java112/project2/**"
-           deprecation="on"
-           debug="on"
-           includeAntRuntime="false" />
+      <!-- Compile the java code from ${src} into ${build} -->
+      <javac srcdir="${src}"
+          destdir="${build}/classes"
+          extdirs="${lib}"
+          verbose="false"
+          excludes="*.jsp,*.html,*.xml, java112/analyzer/**, java112/tests/**, java112/labs1/**, java112/labs2/**, java112/project2/**"
+          deprecation="on"
+          debug="on"
+          includeAntRuntime="false" />
   </target>
-
 
   <target name="build_analyzer" depends="clean, compile_analyzer">
     <jar destfile="lib/analyzer.jar">
@@ -96,18 +95,17 @@
 
   <target name="build_labs" depends="clean, compile_labs">
     <jar destfile="lib/java112Labs.jar">
-      <fileset dir="${build}/classes"
-               excludes="${build}/classes/java112/tests/**" />
+      <fileset dir="${build}/classes" excludes="${build}/classes/java112/tests/**" />
     </jar>
   </target>
-
+  
   <target name="build_demos" depends="clean, compile_demos">
-    <jar destfile="lib/java112Demos.jar">
-      <fileset dir="${build}/classes"
-               excludes="${build}/classes/java112/tests/**" />
-    </jar>
+      <jar destfile="lib/java112Demos.jar">
+          <fileset dir="${build}/classes"
+          excludes="${build}/classes/java112/tests/**" />
+      </jar>
   </target>
-
+  
   <target name="compile_web" depends="clean, init">
     <javac srcdir="${src}"
       destdir="${web_classes}"
@@ -130,9 +128,19 @@
     <copy todir="${build}/images">
       <fileset dir="${static}/images"/>
     </copy>
+    
+    <!-- copy the images to the build/js dir-->
+   <copy todir="${build}/js">
+      <fileset dir="${static}/js"/>
+    </copy>
+    
+    <!-- copy the images to the build/font dir-->
+    <copy todir="${build}/font">
+      <fileset dir="${static}/font"/>
+    </copy>
 
     <!-- copy the JSP pages to the web-app dir-->
-    <copy todir="${WEB-INF}">
+    <copy todir="${build}">
       <fileset dir="${static}">
         <include name="**/*.jsp"/>
       </fileset>
@@ -162,21 +170,14 @@
   </target>
 
   <target name="deploy" depends="dist">
-    <copy file="${dist}/java112.war" todir="${user_home}/tomcat/webapps"/>
+    <copy file="${dist}/java112.war" todir="${tomcat}/webapps"/>
   </target>
-
+  
  <!--########################################################################
     |   jdoc - Generates JavaDoc                                               |
     #########################################################################-->
   <target name="jdoc">
-    <javadoc packagenames="java112.analyzer.*, java112.labs1.*, java112.demos.*"
-             sourcepath="${src}"
-             defaultexcludes="yes"
-             destdir="docs/project_api"
-             author="true"
-             version="true"
-             access="private">
-    </javadoc>
+    <javadoc packagenames="java112.analyzer.*" sourcepath="${src}" defaultexcludes="yes" destdir="docs/project_api" author="true" version="true"></javadoc>
   </target>
 
 <!--########################################################################
@@ -188,12 +189,12 @@
 
     <delete file="${user_home}/Dropbox/Public/projects.tgz"/>
 
-
+    
     <tar destfile="${user_home}/Dropbox/Public/projects.tgz"
          compression="gzip"
       basedir="${project_home}"
     />
-
+        
 
   </target>
 
@@ -222,13 +223,13 @@
 
   <target name="compile_tests" depends="clean, init">
     <!-- Compile the java code from ${src} into ${build} -->
-    <javac srcdir="${src}"
-    destdir="${build}/classes"
-    extdirs="${lib}"
-    verbose="false"
-    excludes="*.jsp,*.html,*.xml java112/analyzer/**, java112/labs1/**, java112/project1/**, java112/labs2"
-    deprecation="on"
-    debug="on"
+    <javac srcdir="${src}" 
+    destdir="${build}/classes" 
+    extdirs="${lib}" 
+    verbose="false" 
+    excludes="*.jsp,*.html,*.xml java112/analyzer/**, java112/labs1/**, java112/project2/**, java112/labs2" 
+    deprecation="on" 
+    debug="on" 
     includeAntRuntime="false" />
   </target>
 
@@ -330,8 +331,30 @@
       <test name="java112.tests.UniqueTokenAnalyzerOutputTest"/>
       <test name="java112.tests.UniqueTokenAnalyzerProcessTokenTest"/>
       <test name="java112.tests.AnalyzeFileMethodsTest"/>
+      <test name="java112.tests.BigWordAnalyzerOutputTest" />
+      <test name="java112.tests.BigWordAnalyzerProcessTokenTest" />
+      <test name="java112.tests.TokenCountAnalyzerOutputTest" />
+      <test name="java112.tests.TokenCountAnalyzerProcessTokenTest" />
     </junit>
   </target>
+  
+  <target name="run_tests_analyzer1">
+      <junit printsummary="yes" fork="yes" haltonfailure="no">
+          <classpath>
+              <pathelement location="${analyzer_lib}"/>
+              <pathelement location="${analyzer_tests}" />
+              <pathelement location="${junit}" />
+          </classpath>
+          <formatter type="plain"/>
+          <test name="java112.tests.AnalyzerDriverTest"/>
+          <test name="java112.tests.SummaryReportTest"/>
+          <test name="java112.tests.SummaryReportOutputTest"/>
+          <test name="java112.tests.UniqueTokenAnalyzerOutputTest"/>
+          <test name="java112.tests.UniqueTokenAnalyzerProcessTokenTest"/>
+          <test name="java112.tests.AnalyzeFileMethodsTest"/>
+      </junit>
+  </target>
+
 
 
 </project>

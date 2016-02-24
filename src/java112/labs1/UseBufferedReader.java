@@ -17,6 +17,14 @@ import java.util.*;
  *@created    August 21, 2010
  */
 public class UseBufferedReader {
+    public UseBufferedReader() {
+    }
+
+    public UseBufferedReader(BufferedReader input, List tokens, Set uniqueTokens) {
+        this.input = input;
+        this.tokens = tokens;
+        this.uniqueTokens = uniqueTokens;
+    }
 
     /**
      *  This is the BufferedReader object that will allow us to read in the
@@ -67,10 +75,7 @@ public class UseBufferedReader {
             while (input.ready()) {
                 inputLine = input.readLine();
                 tokenArray = inputLine.split("\\W");
-                for (int i = 0; i < tokenArray.length; i++) {
-                    tokens.add(tokenArray[i]);
-                    uniqueTokens.add(tokenArray[i]);
-                }
+                testingRefector(tokenArray);
 
             }
 
@@ -90,6 +95,13 @@ public class UseBufferedReader {
                 System.out.println("Failed to close input file");
                 ioe.printStackTrace();
             }
+        }
+    }
+
+    private void testingRefector(String[] tokenArray) {
+        for (int i = 0; i < tokenArray.length; i++) {
+            tokens.add(tokenArray[i]);
+            uniqueTokens.add(tokenArray[i]);
         }
     }
 
