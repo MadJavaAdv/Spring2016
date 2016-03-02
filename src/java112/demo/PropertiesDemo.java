@@ -27,6 +27,8 @@ public class PropertiesDemo {
             properties.load(this.getClass().getResourceAsStream("/demo.properties"));
         } catch (IOException ioe) {
             ioe.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         // find the key/property called "author" and write out the value for that key

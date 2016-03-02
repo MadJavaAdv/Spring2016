@@ -15,8 +15,8 @@ public class MapDemo {
 
   public static void main(String[] args) {
 
-      //ArrayList myList ...
-      Map<String, Integer> map = new TreeMap<>();
+      //Map map ...
+      Map<String, Integer> map = new TreeMap<String, Integer>();
 
       map.put("abc", 4);
       map.put("123", 5);
@@ -25,25 +25,25 @@ public class MapDemo {
 
       System.out.println(map);
 
-      /*if (map.containsValue(6)) {
+      if (map.containsValue(6)) {
           System.out.println("The value 6 is in the map");
-      }*/
+      }
 
-      /*if (map.containsKey("123")) {
+      if (map.containsKey("123")) {
           System.out.println("The key 123 is in the map and here is the value:"
               + map.get("123"));
-      }*/
+      }
 
-      /*System.out.println();
+      System.out.println();
 
-      System.out.println("Here we are iterating over the map");
+     System.out.println("Here we are iterating over the map");
 
 
       for (Map.Entry<String, Integer> entry : map.entrySet()) {
           String key = entry.getKey();
           Integer value = entry.getValue();
           System.out.println(key + " => " + value);
-      }*/
+      }
 
 
 

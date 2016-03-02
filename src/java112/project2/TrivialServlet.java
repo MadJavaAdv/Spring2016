@@ -12,7 +12,7 @@ import javax.servlet.annotation.*;
  */
 @WebServlet(
     name = "trivialServlet", 
-    urlPatterns = { "/trivial", "/patrick" }
+    urlPatterns = { "/trivial", "/simple" }
 )
 public class TrivialServlet extends HttpServlet {
 
@@ -33,10 +33,8 @@ public class TrivialServlet extends HttpServlet {
         out.print("<HEAD><TITLE>TrivialServlet Output</TITLE></HEAD>");
         out.print("<BODY>");
         out.print("<h1>TrivialServlet Here!</h1>");
-        out.print("<h3>A simple change...</h3>");
-        out.print("<ol><li>Chevy</li><li>Toyota</li><li>Saturn</li></ol>");
-        System.out.println("Is this logging - this is from println?");
-        log("Is this logging? - this is from log()");
+        System.out.println("Is this logging?");
+        log("Is this logging?");
         out.print("</BODY>");
         out.print("</HTML>");
         out.close();
