@@ -140,7 +140,10 @@
 		</div>
 		<div class="one-third column">
 			<h3><i class="icon-cog rounded"></i> Unit 3</h3>
-			<p>Coming Soon</p>
+			<p><ul>
+               			<li><a href="demo.jsp">First JSP</a></li>
+               			<li><a href="queryString.jsp">getQueryString()</a></li>
+               			</ul></p>
 		</div>
 		<div class="one-third column">
 			<h3><i class="icon-resize-full rounded"></i> Unit 4</h3>

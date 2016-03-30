@@ -18,9 +18,10 @@ import java.util.*;
       // create a map
       Map<Integer, Student> students = new TreeMap<Integer, Student>();
 
-      students.put(1, new Student("Jim", "G", "A", 1));
+
       students.put(2, new Student("Joe", "P", "A", 2));
       students.put(3, new Student("Joe", "P", "A", 3));
+      students.put(1, new Student("Jim", "G", "A", 1));
 
       System.out.println(students);
 

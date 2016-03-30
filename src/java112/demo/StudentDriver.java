@@ -9,12 +9,13 @@ import java.util.*;
  public class StudentDriver {
      public static void main(String[] args) {
          StudentFactory factory = new StudentFactory();
-         System.out.println("The student TreeSet follows:");
-         System.out.println(factory.createStudentSet());
-         System.out.println();
          System.out.println("The student list follows:");
          System.out.println(factory.createStudentList());
 
+
+         System.out.println("The student TreeSet follows:");
+         System.out.println(factory.createStudentSet());
+         System.out.println();
      }
 
  }

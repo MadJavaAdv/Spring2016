@@ -4,7 +4,8 @@ package java112.demo;
  *  @author pwaite
  */
 
- public class Student implements Comparable<Student>{
+
+    public class Student implements Comparable<Student> {
      private String firstName;
      private String lastName;
      private String grade;
@@ -21,6 +22,7 @@ package java112.demo;
          this.lastName = lastName;
          this.grade = grade;
          this.id = id;
+
      }
 
     /**
@@ -90,23 +92,21 @@ package java112.demo;
 		this.id = id;
 	}
 
-	/**
-	 * Create a String representation of the student
-	 * @return String representing the student
-	 */
+	@Override
+	public String toString() {
+		return "Student{" +
+				"firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", grade='" + grade + '\'' +
+				", id=" + id +
+				'}';
+	}
 
-	 public String toString() {
-	     return "Student: " + firstName + " " +
-	             lastName + " with id of " +
-	             id + " has earned a grade of " +
-	             grade + System.lineSeparator();
-	 }
-
-	 /**
+/**
 	  *  Compare students - based on id
 	  *  @param thatStudent to compare
 	  */
-	  public int compareTo(Student thatStudent) {
+	 public int compareTo(Student thatStudent) {
 	      final int BEFORE = -1;
 	      final int EQUAL = 0;
 	      final int AFTER = 1;
