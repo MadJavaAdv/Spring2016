@@ -10,11 +10,11 @@
   <body>
     <h3>Welcome ${userName} to the JSTL Demo</h3>
     <br />
-
+<ol>
      <c:forEach var="myStudent" items="${ListOStudents}">
         <li>${myStudent}</li>
     </c:forEach>
-
+</ol>
     <a href="/java112">Home</a>
   </body>
 </html>

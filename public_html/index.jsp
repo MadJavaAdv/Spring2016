@@ -154,10 +154,11 @@
 			<p><ul>
 			<li><a href="jstlIfDemo.jsp">JSTL If Demo</a></li>
 			<li><a href="jstlScopeDemo.jsp">JSTL Scope Demo</a></li>
-               			<li><a href="jstlDemo">JSTL For Each Demo</a></li>
-               			
-               			<li><a href="sessionDemo.jsp">Session Demo</a></li>
-               				</ul></p>
+            <li><a href="jstlDemo">JSTL For Each Demo</a></li>
+            <li><a href="templateDemo.jsp">Template Demo</a></li>
+            <li><a href="requestParam.jsp">Form/Request Params Demo</a></li>
+            <li><a href="sessionDemo.jsp">Session Demo</a></li>
+            </ul></p>
 		</div>
         
         </section>
